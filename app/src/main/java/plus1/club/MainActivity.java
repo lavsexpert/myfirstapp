@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mText.setText(newString);
+                EditText editText = findViewById(R.id.editText);
+                ExampleFragment.newText = editText.getText().toString();
+                ExampleFragment fragment = new ExampleFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.add(R.id.fragment, fragment);
+                transaction.addToBackStack(fragment.getClass().getSimpleName());
+                getFragmentManager().popBackStack();
+                transaction.commit();
+
             }
         });
 
@@ -43,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(fragment.getClass().getSimpleName());
         getFragmentManager().popBackStack();
         transaction.commit();
+
     }
 
     @Override
