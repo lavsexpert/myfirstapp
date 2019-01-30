@@ -1,5 +1,6 @@
 package plus1.club;
 
+import android.app.FragmentTransaction;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -35,5 +36,21 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("KEY", "SAD");
+
+        ExampleFragment fragment = new ExampleFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.add(R.id.fragment, fragment);
+        transaction.addToBackStack(fragment.getClass().getSimpleName());
+        getFragmentManager().popBackStack();
+        transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(getFragmentManager().getBackStackEntryCount() > 0){
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
