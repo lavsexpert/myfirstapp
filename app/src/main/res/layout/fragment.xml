@@ -8,12 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="403dp"
-        android:layout_height="273dp"
+        android:layout_width="400dp"
+        android:layout_height="270dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:contentDescription="@string/hello_android"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +29,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="36sp"
         android:textStyle="bold"
